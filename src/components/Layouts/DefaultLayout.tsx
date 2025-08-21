@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, ReactNode } from 'react';
 import AppHeader from '../headers/AppHeader';
 import AppSidebar from '../layout/AppSidebar';
