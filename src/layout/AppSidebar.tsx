@@ -1,7 +1,7 @@
+"use client";
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 interface SidebarProps {
@@ -14,12 +14,6 @@ const AppSidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
-
-  let storedSidebarExpanded = "true";
-
-  const [sidebarExpanded, setSidebarExpanded] = useState(
-    storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true',
-  );
 
   // close on click outside
   useEffect(() => {
@@ -46,15 +40,6 @@ const AppSidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
   });
-
-  useEffect(() => {
-    localStorage.setItem('sidebar-expanded', sidebarExpanded.toString());
-    if (sidebarExpanded) {
-      document.querySelector('body')?.classList.add('sidebar-expanded');
-    } else {
-      document.querySelector('body')?.classList.remove('sidebar-expanded');
-    }
-  }, [sidebarExpanded]);
 
   return (
     <aside
