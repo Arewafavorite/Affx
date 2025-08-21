@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -12,8 +12,8 @@ interface SidebarProps {
 const AppSidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const pathname = usePathname();
 
-  const trigger = useRef<any>(null);
-  const sidebar = useRef<any>(null);
+  const trigger = useRef(null);
+  const sidebar = useRef(null);
 
   // close on click outside
   useEffect(() => {
